@@ -143,6 +143,9 @@ def _make_envelope(data):
     if data:
         time = reduce(_envelope_reduce, data)['last_update']
 
+    if len(data) == 1:
+        data = data[0]
+
     return jsonify({
         'data': data,
         'updated': time
