@@ -213,6 +213,9 @@ class Mtapi(object):
         with self._read_lock:
             out = [ self._stations[k].serialize() for k in ids ]
 
+        if len(out) == 1:
+            return out[0]
+
         return out
 
     def is_expired(self):
